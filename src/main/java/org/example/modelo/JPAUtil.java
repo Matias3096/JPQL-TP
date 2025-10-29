@@ -29,4 +29,11 @@ public class JPAUtil {
         }
     }
 
+    private static final String SIGNATURE = "Hecho por grupo  Matías Fernández, Luisina Battella Alma Ponce Maria Jose Villarreal Aracelly Caballero M. Candela Gonzalez";
+
+    public static String getSignature() {
+        return SIGNATURE;
+    }
+
+
 }

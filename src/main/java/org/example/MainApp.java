@@ -29,6 +29,13 @@ public class MainApp {
         EntityManagerFactory emf = JPAUtil.getEntityManagerFactory();
         EntityManager em = emf.createEntityManager();
 
+
+        System.out.println("\n===============================");
+        System.out.println(JPAUtil.getSignature());
+        System.out.println("===============================\n");
+
+
+
         // --- CARGA INICIAL ---
         printSection("CARGA INICIAL");
         em.getTransaction().begin();
@@ -55,12 +62,12 @@ public class MainApp {
         JPQLService.printInsumos(lowStock);
 
         // --- 3) ARTÍCULOS POR CATEGORÍA ---
-        printSection("3) ARTÍCULOS POR CATEGORÍA 'INSUMOS'");
+        printSection("3) ARTICULOS POR CATEGORÍA 'INSUMOS'");
         List<Articulo> porCat = service.articulosPorCategoria("Insumos");
         JPQLService.printArticulos(porCat);
 
         // --- 4) ARTÍCULOS CON IMAGEN ---
-        printSection("4) ARTÍCULOS CON IMAGEN");
+        printSection("4) ARTICULOS CON IMAGEN");
         List<Articulo> conImg = service.articulosConImagen();
         JPQLService.printArticulos(conImg);
 
@@ -68,6 +75,11 @@ public class MainApp {
         printSection("5) TOTAL FACTURADO POR CLIENTE");
         List<Object[]> totales = service.totalFacturadoPorCliente();
         JPQLService.printClientesTotales(totales);
+
+        System.out.println("\n===============================");
+        System.out.println(JPAUtil.getSignature());
+        System.out.println("===============================\n");
+
 
         // --- 6) FACTURAS EN RANGO ---
         printSection("6) FACTURAS EN RANGO");
@@ -112,6 +124,11 @@ public class MainApp {
         // --- FINALIZAR ---
         printSection("EJECUCIÓN FINALIZADA");
         System.out.println(GREEN + "🎉 Programa ejecutado correctamente sin errores." + RESET);
+
+        System.out.println("\n===============================");
+        System.out.println(JPAUtil.getSignature());
+        System.out.println("===============================\n");
+
 
         em.close();
         JPAUtil.shutdown();
